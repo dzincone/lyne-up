@@ -6,12 +6,18 @@ html
   body
     header
       .container
-        .title
-          h2 Lyne Up
-        nav
-        .login
-            a(href="/login") Login  
-            a(href="/") Create Account
+        .header-container
+          .title
+            h2 Lyne Up
+          .links
+            nav
+              a(href="/") Home
+              a(href="/about") About
+              a(href="/leagues") Leagues
+              a(href="/players") Players
+            .login
+              a(href="/login") Login  
+              a(href="/create-account") Create Account
           
     block content
     footer

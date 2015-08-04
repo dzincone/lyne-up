@@ -1,0 +1,29 @@
+extends ../layout
+
+block content
+  main
+    .container
+      .banner
+        h2 Please Login
+    if errors
+      .container
+        ul
+          each error in errors
+            li= error
+    .container
+      .form
+        form(action="/login", method="post")
+          .container
+            .label
+              label(for="username") Username
+            .input
+              input(type="text" id="username" name="username" value=username)
+          .container
+            .label
+              label(for="password") Password
+            .input
+              input(type="password" id="password" name="password")
+          .container
+            .label
+            .input-button
+              input(type="submit" value="Login")
