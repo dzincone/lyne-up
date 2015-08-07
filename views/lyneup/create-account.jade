@@ -1,34 +1,4 @@
 extends ../layout
 
 block content
-  main 
-    .container
-      .banner
-        h2 Create Account
-    if errors
-      .container
-        ul
-          each error in errors
-            li= error
-    .container
-      .form
-        form(action="/create-account", method="post")
-          .container
-            .label
-              label(for="username") Username
-            .input
-              input(type="text" name="username" id="username" value=username)
-          .container
-            .label
-              label(for="password") Password
-            .input
-              input(type="password" name="password" id="password")
-          .container
-            .label
-              label(for="confirm") Confirm Password
-            .input
-              input(type="password" id="confirm" name="confirm")
-          .container
-            .label
-            .input-button
-              input(type="submit" value="Create Account")
+  
