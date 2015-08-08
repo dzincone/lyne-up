@@ -251,17 +251,32 @@ html, body {
 
 .form input[type="submit"] {
   outline: none;
-  padding: 8px 22px 8px 22px;
+  padding: 10px 25px 10px 25px;
   background-color: black;
   border-radius: 10px;
-  color: white;
+  color: rgba(102,51,153,1);
   border: none;
   font-size: 1em;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   margin-top: 5px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .form input[type="submit"]:hover {
   background-color: white;
-  color: black;
+  color: rgba(102,51,153,1);
+}
+
+.form .input button {
+  padding: 8px 22px 8px 22px;
+  background-color: black;
+  color: rgba(102,51,153,1);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form .input button:hover {
+  background-color: white;
+  color: rgba(102,51,153,1);
 }
