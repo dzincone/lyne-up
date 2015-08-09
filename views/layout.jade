@@ -25,6 +25,35 @@ html
           .row
     block content
     .container
+      .row
+        .form-login
+          .form
+            .row
+              .cancel-login
+                button(type="button") X
+            form(action="/", method="post")
+              .row
+                h2 Login
+              .row
+                .label
+                  label(for="username") Username
+                .input
+                  input(type="email" name="username" id="username")
+              .row
+                .label
+                  label(for="password") Password
+                .input 
+                  input(type="password" name="password" id="password")
+              .row
+                .label
+                .input
+                  input(type="submit" value="Sign In")
+            .row
+              .label
+                .input
+                  a(href="/create-account")
+                    button(type="submit") Create Account
+    .container
       .footer
         footer
           .row

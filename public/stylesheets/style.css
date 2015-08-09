@@ -142,6 +142,10 @@ html, body {
   z-index: 10;
 }
 
+.half-buttons {
+  width: 100%;
+  overflow: hidden;
+}
 
 .main-content .half-left {
   float:left;
@@ -161,7 +165,29 @@ html, body {
   padding-top: 10px;
 }
 
-.main-content button {
+.content-options {
+  padding-top: 20px;
+}
+
+.main-content .half-left button {
+  padding: 20px;
+  color: white;
+  border: 1px solid rgba(102,51,153,1);
+  border-radius: 10px;
+  font-size: 2em;
+  background-color: rgba(102,51,153,1);
+  outline: none;
+  width: 80%;
+  cursor: pointer;
+}
+
+.main-content .half-left button:hover {
+  color: rgba(102,51,153,1);
+  background-color: white;
+  border: 1px solid rgba(102,51,153,1);
+}
+
+.main-content .half-right button {
   padding: 20px;
   color: rgba(102,51,153,1);
   border: 1px solid rgba(102,51,153,1);
@@ -173,7 +199,7 @@ html, body {
   cursor: pointer;
 }
 
-.main-content button:hover {
+.main-content .half-right button:hover {
   color: white;
   background-color: rgba(102,51,153,1);
   border: none;

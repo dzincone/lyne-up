@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('../lib/mongo.js');
+var app = require('../lib/app.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -24,26 +25,10 @@ router.get('/create-account', function(req, res, next){
 })
 
 router.post('/create-account', function(req, res, next) {
-  var errors = [];
-  if(req.body.username === ""){
-    errors.push("Username cannot be left blank")
-  }
-  if(req.body.password === ""){
-    errors.push("Password cannot be left blank")
-  }
-  if(req.body.confirm === ""){
-    errors.push("You must confirm your password")
-  }
-  if(req.body.password != req.body.confirm){
-    errors.push("Your passwords do not match, please re-enter them carefully")
-  }
-  if(errors.length === 0){
+  app.checkErrors(req, res);
     mongo.newAccount(req.body).then(function(){
       res.redirect('/');
     })
-  } else {
-    res.render('lyneup/create-account', {errors: errors, data: req.body})
-  }
 })
 
 router.get('/login', function(req, res, next){

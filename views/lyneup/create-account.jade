@@ -1,4 +1,136 @@
 extends ../layout
 
 block content
-  
+  .container
+    .main
+      main
+        .row
+          h1 Create Your Account
+        .row
+          .main-content
+            if errors
+              .row
+                ul
+                  each error in errors
+                    li= error
+            .row
+              .form-create
+                form(action="/create-account", method="post")
+                  .row
+                    p Short description of making your account. You can create your username which is an email, and you can create a password as well for your account. This will be your login no matter what type of roll you choose. To get other rolls you must purchase them. These details will be sorted out at a later time when I get a better understanding of how that will work.
+                  .row
+                    .label
+                      label(for="username") Email
+                    .input
+                      input(type="email" name="username" id="username")
+                  .row
+                    .label
+                      label(for="password") Password
+                    .input
+                      input(type="password" name="password" id="password")
+                  .row
+                    .label
+                      label(for="confirm") Confirm Password
+                    .input
+                      input(type="password" name="confirm" id="confirm")
+                  .row
+                      h4 Role for user
+                    .label
+                      label(for="leagueowner") League Owner
+                    .input
+                      input(type="radio" name="role" id="leagueowner")
+                    .label
+                      label(for="coach") Coach
+                    .input
+                      input(type="radio" name="role" id="coach")
+                    .label
+                      label(for="regular") Regular User
+                    .input
+                      input(type="radio" name="role" id="regular" checked)
+                  .row
+                    p Here you will list some personal information for your account. This will include name, address, and the type of role that they want to use.
+                  .row
+                    .label
+                      label(for="first") First Name
+                    .input
+                      input(type="text" name="first" id="first")
+                  .row
+                    .label
+                      label(for="last") Last Name
+                    .input
+                      input(type="text" name="last" id="last")
+                  .row
+                    .label
+                      label(for="street") Street Address
+                    .input
+                      input(type="text" name="street" id="street")
+                  .row
+                    .label
+                      label(for="city") City
+                    .input
+                      input(type="text" name="city" id="city")
+                  .row
+                    .label
+                      label(for="state") State
+                    .input
+                      select(name="state" id="state")
+                        option(value='AL') Alabama
+                        option(value='AK') Alaska
+                        option(value='AZ') Arizona
+                        option(value='AR') Arkansas
+                        option(value='CA') California
+                        option(value='CO') Colorado
+                        option(value='CT') Connecticut
+                        option(value='DE') Delaware
+                        option(value='DC') District Of Columbia
+                        option(value='FL') Florida
+                        option(value='GA') Georgia
+                        option(value='HI') Hawaii
+                        option(value='ID') Idaho
+                        option(value='IL') Illinois
+                        option(value='IN') Indiana
+                        option(value='IA') Iowa
+                        option(value='KS') Kansas
+                        option(value='KY') Kentucky
+                        option(value='LA') Louisiana
+                        option(value='ME') Maine
+                        option(value='MD') Maryland
+                        option(value='MA') Massachusetts
+                        option(value='MI') Michigan
+                        option(value='MN') Minnesota
+                        option(value='MS') Mississippi
+                        option(value='MO') Missouri
+                        option(value='MT') Montana
+                        option(value='NE') Nebraska
+                        option(value='NV') Nevada
+                        option(value='NH') New Hampshire
+                        option(value='NJ') New Jersey
+                        option(value='NM') New Mexico
+                        option(value='NY') New York
+                        option(value='NC') North Carolina
+                        option(value='ND') North Dakota
+                        option(value='OH') Ohio
+                        option(value='OK') Oklahoma
+                        option(value='OR') Oregon
+                        option(value='PA') Pennsylvania
+                        option(value='RI') Rhode Island
+                        option(value='SC') South Carolina
+                        option(value='SD') South Dakota
+                        option(value='TN') Tennessee
+                        option(value='TX') Texas
+                        option(value='UT') Utah
+                        option(value='VT') Vermont
+                        option(value='VA') Virginia
+                        option(value='WA') Washington
+                        option(value='WV') West Virginia
+                        option(value='WI') Wisconsin
+                        option(value='WY') Wyoming
+                  .row
+                    .label
+                      label(for="zip") Zip Code
+                    .input
+                      input(type="number" name="zip" id="zip")
+                  .row
+                    .label
+                    .input
+                      input(type="submit" value="Create Account")
