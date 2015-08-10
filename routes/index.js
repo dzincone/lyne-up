@@ -5,18 +5,31 @@ var app = require('../lib/app.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  console.log(req.session.role);
+  if(req.session.username){
+    mongo.checkRole(req, res);
+  } else {
+      res.render('index', { title: 'Express' });
+  }
 });
 
 router.get('/about', function(req, res, next) {
   res.render('index')
 })
 
-router.get('/leagues', function(req, res, next) {
+router.get('/prices', function(req, res, next) {
   res.render('index')
 })
 
-router.get('/players', function(req, res, next) {
+router.get('/league-features', function(req, res, next) {
+  res.render('index')
+})
+
+router.get('/upcoming-events', function(req, res, next) {
+  res.render('index')
+})
+
+router.get('/contact-us', function(req, res, next) {
   res.render('index')
 })
 
@@ -25,14 +38,8 @@ router.get('/create-account', function(req, res, next){
 })
 
 router.post('/create-account', function(req, res, next) {
-  app.checkErrors(req, res);
-    mongo.newAccount(req.body).then(function(){
-      res.redirect('/');
-    })
-})
-
-router.get('/login', function(req, res, next){
-  res.render('lyneup/login');
+    app.checkErrors(req, res);
+    mongo.newAccount(req.body, req, res)
 })
 
 router.post('/login', function(req, res, next){
@@ -44,12 +51,15 @@ router.post('/login', function(req, res, next){
     errors.push("Password cannot be left blank")
   }
   if(errors.length === 0){
-    mongo.login(req.body, res).then(function(){
-
-    })
+    mongo.login(req.body, req, res);
   }
   else {
     res.render('lyneup/login', {errors: errors})
   }
+})
+
+router.get('/logout', function(req, res, next) {
+  req.session = null;
+  res.redirect("/");
 })
 module.exports = router;

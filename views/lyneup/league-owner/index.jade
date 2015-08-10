@@ -1,0 +1,53 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Welcome League Owner
+        .row
+          .main-content
+            .row
+              .league
+                a(href="/create-league")
+                  button(type="button") Create League
+            .row
+              if leagues
+                each league in leagues
+                  .each-league
+                    .game-info
+                      h2 League Name: 
+                        span= league.league_name
+                      p Time Setting: 
+                        span= league.game_type
+                      p Game Length: 
+                        span= league.game_length
+                      a(href="/league/" + league._id)
+                        button(type="button") Edit League
+                      a(href="/league/" + league._id + "/create-division")
+                        button(type="button") Add Division
+                      .remove
+                        form(action="/league/remove/" + league._id, method="post")
+                          .row
+                            .label
+                            .input
+                              input(type="submit" value="Remove League")
+                    if divisions
+                      .divisions
+                        each division in divisions
+                          .each-division
+                            h4=division.division_name
+                            p Gender: 
+                              span=division.gender
+                            p Grade Level: 
+                              span=division.grade_level
+                            p Skill Level: 
+                              span=division.skill_level
+                            p Teams 
+                              span #{division.teams.length} / #{division.max}
+                            a(href="/league/" + league._id + "/division/" + division._id)
+                              button(type="button") Edit Division
+                            form(action="/league/"+ league._id + "/division/remove/" + division._id, method="post")
+                              input(type="submit" value="Remove Division")
+                    

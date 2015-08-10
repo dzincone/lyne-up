@@ -1,0 +1,112 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Welcome League Owner
+        .row
+          .main-content
+            .form
+              form(action="/create-league", method="post")
+                .row
+                  .label
+                    label(for="name") League Name
+                  .input
+                    input(type="text" name="name" id="name")
+                .row
+                  .label
+                    label(for="street") Street Address
+                  .input
+                    input(type="text" name="street" id="street")
+                .row
+                  .label
+                    label(for="city") City
+                  .input
+                    input(type="text" name="city" id="city")
+                .row
+                  .label
+                    label(for="state") State
+                  .input
+                    select(name="state" id="state")
+                      option(value='AL') Alabama
+                      option(value='AK') Alaska
+                      option(value='AZ') Arizona
+                      option(value='AR') Arkansas
+                      option(value='CA') California
+                      option(value='CO') Colorado
+                      option(value='CT') Connecticut
+                      option(value='DE') Delaware
+                      option(value='DC') District Of Columbia
+                      option(value='FL') Florida
+                      option(value='GA') Georgia
+                      option(value='HI') Hawaii
+                      option(value='ID') Idaho
+                      option(value='IL') Illinois
+                      option(value='IN') Indiana
+                      option(value='IA') Iowa
+                      option(value='KS') Kansas
+                      option(value='KY') Kentucky
+                      option(value='LA') Louisiana
+                      option(value='ME') Maine
+                      option(value='MD') Maryland
+                      option(value='MA') Massachusetts
+                      option(value='MI') Michigan
+                      option(value='MN') Minnesota
+                      option(value='MS') Mississippi
+                      option(value='MO') Missouri
+                      option(value='MT') Montana
+                      option(value='NE') Nebraska
+                      option(value='NV') Nevada
+                      option(value='NH') New Hampshire
+                      option(value='NJ') New Jersey
+                      option(value='NM') New Mexico
+                      option(value='NY') New York
+                      option(value='NC') North Carolina
+                      option(value='ND') North Dakota
+                      option(value='OH') Ohio
+                      option(value='OK') Oklahoma
+                      option(value='OR') Oregon
+                      option(value='PA') Pennsylvania
+                      option(value='RI') Rhode Island
+                      option(value='SC') South Carolina
+                      option(value='SD') South Dakota
+                      option(value='TN') Tennessee
+                      option(value='TX') Texas
+                      option(value='UT') Utah
+                      option(value='VT') Vermont
+                      option(value='VA') Virginia
+                      option(value='WA') Washington
+                      option(value='WV') West Virginia
+                      option(value='WI') Wisconsin
+                      option(value='WY') Wyoming
+                .row
+                  .label
+                    label(for="zip") Zip Code
+                  .input
+                    input(type="number" name="zip" id="zip")
+                .row
+                  p Please enter in the specific game information. This will include game rules and how your want your league to be run.
+                .row
+                  .label
+                    h4 Game Type
+                .row
+                  .label
+                    label(for="half") Halves
+                  .input
+                    input(type="radio" name="type" value="Half" id="half" checked)
+                  .label
+                    label(for="quarter") Quarters
+                  .input
+                    input(type="radio" name="type" value="Quarter" id="quarter")
+                .row
+                  .label
+                    label(for="length") Game length
+                  .input
+                    input(type="number" name="length" id="length")
+                .row
+                  .label
+                  .input
+                    input(type="submit" value="Create League")
+              

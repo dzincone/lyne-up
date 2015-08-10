@@ -20,18 +20,23 @@ html
               a(href="/") Upcoming Events
               a(href="/") Contact Us
             .account
-              button.login Login / Create Account              
+              if user
+                span Hello, &nbsp;#{name}
+                a(href="/logout")
+                  button.logout Logout
+              else
+                button.login Login / Create Account              
           .row
           .row
     block content
     .container
       .row
         .form-login
-          .form
+          .form-signin
             .row
               .cancel-login
                 button(type="button") X
-            form(action="/", method="post")
+            form(action="/login", method="post")
               .row
                 h2 Login
               .row
