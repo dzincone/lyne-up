@@ -22,7 +22,7 @@ html, body {
   padding-top: 10px;
   padding-bottom: 10px;
   position: fixed;
-  background: black;
+  background: #303030;
   left: 0;
   top: 0;
   height: 60px;
@@ -74,12 +74,14 @@ html, body {
   padding-left: 120px;
   float: left;
   margin-top: 10px;
+  text-align: center;
 
 }
 .nav a {
-  padding-right: 5px;
-  padding-left: 5px;
-  margin-right: 35px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 23px;
+  padding-bottom: 19px;
   font-size: 1em;
   font-weight: 400;
   color: white;
@@ -88,6 +90,7 @@ html, body {
 }
 
 .nav a:hover {
+  background: white;
   color: rgba(102,51,153,1);
 }
 
@@ -99,21 +102,22 @@ html, body {
 }
 
 .account button {
+  margin-left: 20px;
   padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 20px;
   text-decoration: none;
   font-size: 1em;
   font-weight: 600;
-  color: rgba(102,51,153,1);
-  background: none;
-  border: none;
+  color: white;
+  border: 2px solid rgba(102,51,153,1);
+  border-radius: 5px;
+  background: rgba(102,51,153,1);
   outline: none;
   cursor: pointer;
 }
 
 .account button:hover {
-  color: white;
+  color: rgba(102,51,153,1);
+  background-color: white;
 }
 
 .main {
@@ -141,6 +145,11 @@ html, body {
   text-align: center;
   line-height: 28px;
   z-index: 10;
+}
+
+.form {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .half-buttons {
@@ -279,7 +288,7 @@ html, body {
 .form-signin input[type="submit"] {
   outline: none;
   padding: 10px 25px 10px 25px;
-  background-color: black;
+  background-color: white;
   border-radius: 10px;
   color: rgba(102,51,153,1);
   border: none;
@@ -291,20 +300,20 @@ html, body {
 }
 
 .form-signin input[type="submit"]:hover {
-  background-color: white;
+  background-color: black;
   color: rgba(102,51,153,1);
 }
 
 .form-signin .input button {
   padding: 8px 22px 8px 22px;
-  background-color: black;
+  background-color: white;
   color: rgba(102,51,153,1);
   border-radius: 10px;
   cursor: pointer;
 }
 
 .form-signin .input button:hover {
-  background-color: white;
+  background-color: black;
   color: rgba(102,51,153,1);
 }
 
@@ -422,4 +431,110 @@ html, body {
 .game-info .remove input[type="submit"]:hover {
   background: rgba(102,51,153,1);
   color: white;
+}
+
+.errors {
+  margin: 0 auto;
+  width: 50%;
+  color: red;
+}
+
+.current-divisions {
+  width: 100%;
+  overflow: hidden;
+}
+
+.individual-division {
+  width: 33%;
+  float:left;
+  padding-bottom: 20px;
+}
+
+.register button {
+  margin: 5px;
+  border: 1px solid rgba(102,51,153,1);
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  background: white;
+  font-size: 1em;
+  background: rgba(102,51,153,1);
+  color: white;
+}
+
+.register button:hover {
+  background: white;
+  color: rgba(102,51,153,1);
+}
+
+.league-to-join {
+  width: 100%;
+  border-bottom: 1px solid rgba(102,51,153,1);
+}
+
+.new-team {
+  padding-top: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+.team-stuff {
+  float:left;
+  width: 50%;
+}
+
+.team-info {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  float: left;
+  border: 2px solid black;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.team-info p {
+  margin: 0;
+}
+
+.team-title {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+}
+.team-title h3 {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #303030;
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.team-info p {
+}
+
+.more-team-info {
+  display: inline-block;
+  margin: 0;
+  width: 48%;
+}
+
+.more-team-info button {
+  padding: 10px;
+  color: white;
+  border: 1px solid rgba(102,51,153,1);
+  border-radius: 10px;
+  font-size: 1.5em;
+  background-color: rgba(102,51,153,1);
+  outline: none;
+  width: 60%;
+  cursor: pointer;
+}
+
+.more-team-info button:hover {
+  color: rgba(102,51,153,1);
+  background-color: white;
+  border: 1px solid rgba(102,51,153,1);
 }

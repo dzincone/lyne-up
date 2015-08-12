@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Manage Your Player
+        .row
+          .main-content
+            .row
+              .league
+                h2 Player Information
+            .row
+              .new-player
+                p First Name: 
+                  =player.first_name
+                p Last Name: 
+                  =player.last_name
+                p Jersey Number: 
+                  =player.jersey
+                    

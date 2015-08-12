@@ -65,12 +65,19 @@ router.get('/league/:id/division/:divisionid', function(req, res, next){
 })
 
 router.post('/update-division/:id', function(req, res, next){
-
-  mongo.updateDivision(req).then(function(data){
-
-    res.redirect('/');
+  var errors = [];
+  app.checkDivisionErrors(req, res, errors);
+  if(errors != 0){
+    mongo.findDivisionToUpdate(req).then(function(data){
+      res.render('lyneup/league-owner/division', {data: data, user: req.session.username, name: req.session.name, _id: req.params.id, errors: errors, info: req.body})
+    })
+  } else {
+    mongo.updateDivision(req).then(function(data){
+      res.redirect('/');
   })
-})
+}
+
+  })
 
 router.post('/create-division/:id', function(req, res, next){
   var errors = [];

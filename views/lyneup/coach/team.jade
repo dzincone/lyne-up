@@ -1,0 +1,34 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Manage Team
+        .row
+          .main-content
+            .row
+              .league
+                h2 Team Name: 
+                  =team.team_name
+                h3 Coach's Name: 
+                  =name
+                h3 Assistant's Name: 
+                  =team.assistant
+            .row
+              .new-team
+                each player in players
+                  .player-info
+                    p Player's First Name: 
+                      = player.first_name
+                    p Player's Last Name: 
+                      = player.last_name
+                    p Player's Number: 
+                      = player.jersey
+                    a(href="/player/" + player._id + "/edit")
+                      button(type="button") Edit Player
+                    
+                
+                
+                  

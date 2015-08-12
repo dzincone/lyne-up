@@ -1,0 +1,63 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Join A Division!
+        .row
+          .main-content
+            if errors
+              .error
+                each error in errors
+                  p=error
+            if errors
+              .form
+                form(action="/league/"+ leagueid + "/division/" + divisionid + "/join-division", method="post")
+                  .row
+                    .label
+                      label(for="team") Team Name
+                    .input
+                      input(id="team" name="team" type="text")
+            else
+              .form
+                form(action="/league/"+ leagueid + "/division/" + divisionid + "/join-division", method="post")
+                  .row
+                    .label
+                      label(for="team") Team Name
+                    .input
+                      input(id="team" name="team" type="text")
+                  .row
+                    .label
+                      label(for="assistant") Assistant Coach's Name
+                    .input
+                      input(id="assistant" name="assistant" type="text")
+                  .row
+                    .input
+                      button.add-player(type="button") Add New Player
+                  .row
+                    h3 Player 1 Information
+                    .row
+                      .label
+                        label(for="player1_first_name") First Name
+                      .input
+                        input(type="text" name="player1_first_name" id="player1_first_name")
+                    .row
+                      .label
+                        label(for="player1_last_name") Last Name
+                      .input
+                        input(type="text" name="player1_last_name" id="player1_last_name")
+                    .row
+                      .label
+                        label(for="player1_number") Jersey Number
+                      .input
+                        input(type="number" name="player1_number" id="player1_number")
+                    .row
+                      input#count(type="hidden" name="count" value=1)
+                    .row
+                      .input
+                        input(id="submit-team" type="submit" value="Submit Team")
+                      
+                  
+                    

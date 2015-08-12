@@ -5,6 +5,37 @@ block content
     .main
       main
         .row
-          h1 Welcome Coach!
+          h1 Welcome Coach
         .row
           .main-content
+            .row
+              .league
+                a(href="/join-league")
+                  button(type="button") Join League
+            if teams
+              .row
+                each team in teams
+                  .new-team
+                    .team-stuff
+                      .team-title
+                        h3= team.team_name
+                      .team-info
+                        p.team Coach's Name: 
+                          =name
+                        p.team Assistant Coach: 
+                          =team.assistant
+                        each division in divisions
+                          each teamid in division.teams
+                            if (teamid.toString() === team._id.toString())
+                              p.info Division Name: 
+                                = division.division_name
+                              p.info Boys or Girls: 
+                                = division.gender
+                              p.info Grade Level: 
+                                = division.grade_level
+                              p.info Skill Level: 
+                                =division.skill_level
+                    .more-team-info
+                      a(href="/team/"+ team._id)
+                        button(type="button") Manage Team
+                  

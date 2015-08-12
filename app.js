@@ -10,6 +10,7 @@ var session = require('cookie-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var league = require('./routes/league');
+var coach = require('./routes/coach');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(session({
 app.use('/', routes);
 app.use('/users', users);
 app.use('/', league);
+app.use('/', coach);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,10 +5,59 @@ var app = require('../lib/app.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.session.role);
   if(req.session.username){
-    mongo.checkRole(req, res);
-  } else {
+   mongo.findUser(req).then(function(user){
+     if(user.role === "leagueowner"){
+       mongo.findLeaguesForOwner(user).then(function(leagues){
+          if(leagues.length != 0){
+            var array = [];
+            mongo.findDivisionsForOwner().then(function(data){
+              if(data.length != 0){
+                for(var i = 0; i < leagues.length; i++){
+                  for(var j = 0; j < leagues[i].divisions.length; j++){
+                    for(var k = 0; k < data.length; k++){
+                    if(leagues[i].divisions[j].toString() === data[k]._id.toString()){
+                      array.push(data[k]._id)
+                    }
+                  }
+                } mongo.findSpecificDivisionsForOwner(array).then(function(divisions){
+                    res.render("lyneup/league-owner/index", {user: req.session.username, name: req.session.name, leagues: leagues, divisions: divisions})
+                })
+              }
+            } // ends data.length condition
+            else {
+                res.render("lyneup/league-owner/index", {user: req.session.username, name: req.session.name, leagues: leagues})
+              }
+            }) //ends findSpecificDivisionsForOwner promise
+          }  //ends leagues.length condition
+          else {
+            res.render("lyneup/league-owner/index", {user: req.session.username, name: req.session.name})
+          }
+        }) // ends findLeaguesForOwner promise
+     } //ends user.role condition
+     else if(user.role === "coach"){
+       mongo.findTeams().then(function(allteams){
+         if(allteams.length != 0){
+           mongo.displayCoachesTeams(req).then(function(teams){
+          console.log(teams)
+            if(teams.length != 0){
+              mongo.findDivisionForOneTeam(req, teams).then(function(divisions){
+                console.log(divisions)
+                res.render("lyneup/coach/index", {user: req.session.username, name: req.session.name, teams: teams, divisions: divisions})
+              })
+
+            } else {
+              res.render("lyneup/coach/index", {user: req.session.username, name: req.session.name})
+            }
+           })
+         } else {
+             res.render("lyneup/coach/index", {user: req.session.username, name: req.session.name})
+         }
+       })
+     }
+   }) // ends findUser promise
+ } //ends req.session condition
+   else {
       res.render('index', { title: 'Express' });
   }
 });
@@ -54,7 +103,7 @@ router.post('/login', function(req, res, next){
     mongo.login(req.body, req, res);
   }
   else {
-    res.render('lyneup/login', {errors: errors})
+    res.redirect('/')
   }
 })
 

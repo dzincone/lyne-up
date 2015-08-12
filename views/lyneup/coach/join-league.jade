@@ -1,0 +1,34 @@
+extends ../../layout
+
+block content
+  .container
+    .main
+      main
+        .row
+          h1 Join a League, Coach!
+        .row
+          .main-content
+            each league in leagues
+              .league-to-join
+                h2=league.league_name
+                p Game Type: 
+                  span=league.game_type
+                p Game Length: 
+                  span=league.game_length
+              if divisions
+                .current-divisions
+                  each division in divisions
+                    .individual-division
+                      p Division Name: 
+                        span=division.division_name
+                      p Gender: 
+                        span=division.gender
+                      p Grade Level: 
+                        span=division.grade_level
+                      p Skill Level
+                        span=division.skill_level
+                      p Team Spots Signed Up: 
+                        span #{division.teams.length} /  #{division.max} 
+                      .register
+                        a(href="/league/" + league._id + "/division/" + division._id + "/join-division")
+                          button(type="button") Join Division
