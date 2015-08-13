@@ -3,6 +3,9 @@ var router = express.Router();
 var mongo = require('../lib/mongo.js');
 var app = require('../lib/app.js');
 
+// when a user goes to "/"
+// if they are logged in, redirect them to /leagueowner or /coach
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(req.session.username){
@@ -39,13 +42,10 @@ router.get('/', function(req, res, next) {
        mongo.findTeams().then(function(allteams){
          if(allteams.length != 0){
            mongo.displayCoachesTeams(req).then(function(teams){
-          console.log(teams)
             if(teams.length != 0){
               mongo.findDivisionForOneTeam(req, teams).then(function(divisions){
-                console.log(divisions)
                 res.render("lyneup/coach/index", {user: req.session.username, name: req.session.name, teams: teams, divisions: divisions})
               })
-
             } else {
               res.render("lyneup/coach/index", {user: req.session.username, name: req.session.name})
             }

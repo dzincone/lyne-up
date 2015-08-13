@@ -23,6 +23,8 @@ block content
                         span= league.game_type
                       p Game Length: 
                         span= league.game_length
+                      a(href="/league/" + league._id + "/schedule")
+                        button(type="button") View Schedule
                       a(href="/league/" + league._id)
                         button(type="button") Edit League
                       a(href="/league/" + league._id + "/create-division")

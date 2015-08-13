@@ -45,7 +45,7 @@ html, body {
   font-weight: 200;
 }
 
-.title h1::before {
+.title h1:before {
   background-color: rgba(102,51,153,1);
   transform: skew(-25deg, 0);
   width: 275px;
@@ -57,7 +57,7 @@ html, body {
   margin-left: -100px;
 }
 
-.title h1::after {
+.title h1:after {
   background-color: white;
   transform: skew(-25deg, 0);
   width: 255px;
@@ -402,6 +402,7 @@ html, body {
   margin-right: 10px;
   border: 1px solid black;
   padding: 5px;
+  margin-bottom: 20px;
   border-radius: 5px;
   outline: none;
   background: rgba(102,51,153,1);

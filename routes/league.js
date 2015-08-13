@@ -75,9 +75,14 @@ router.post('/update-division/:id', function(req, res, next){
     mongo.updateDivision(req).then(function(data){
       res.redirect('/');
   })
-}
+  }
+})
 
-  })
+router.get("/league/:id/schedule", function(req, res, next){
+
+
+
+})
 
 router.post('/create-division/:id', function(req, res, next){
   var errors = [];
