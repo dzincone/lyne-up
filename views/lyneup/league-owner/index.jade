@@ -35,9 +35,9 @@ block content
                             .label
                             .input
                               input(type="submit" value="Remove League")
-                    if divisions
+                    if leagues
                       .divisions
-                        each division in divisions
+                        each division in league.divisions
                           .each-division
                             h4=division.division_name
                             p Gender: 

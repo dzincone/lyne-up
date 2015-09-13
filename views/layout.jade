@@ -20,8 +20,8 @@ html
               a(href="/") Upcoming Events
               a(href="/") Contact Us
             .account
-              if user
-                span Hello, &nbsp;#{name}
+              if user.username
+                span Hello, &nbsp;#{user.name}
                 a(href="/logout")
                   button.logout Logout
               else

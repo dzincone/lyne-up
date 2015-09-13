@@ -14,7 +14,7 @@ block content
                   button(type="button") Join League
             if teams
               .row
-                each team in teams
+                each team in teams.teams
                   .new-team
                     .team-stuff
                       .team-title
@@ -24,7 +24,7 @@ block content
                           =name
                         p.team Assistant Coach: 
                           =team.assistant
-                        each division in divisions
+                        each division in teams.divisions
                           each teamid in division.teams
                             if (teamid.toString() === team._id.toString())
                               p.info Division Name: 

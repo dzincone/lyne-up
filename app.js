@@ -30,6 +30,11 @@ app.use(session({
   keys: [process.env.KEY1, process.env.KEY2]
 }));
 
+app.use(function(req, res, next){
+    res.locals.user = req.session;
+    next();
+});
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/', league);

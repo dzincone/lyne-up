@@ -15,9 +15,9 @@ block content
                   span=league.game_type
                 p Game Length: 
                   span=league.game_length
-              if divisions
+              if league.alldivisions
                 .current-divisions
-                  each division in divisions
+                  each division in league.alldivisions
                     .individual-division
                       p Division Name: 
                         span=division.division_name
